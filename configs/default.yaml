@@ -1,0 +1,20 @@
+project_name: ts2img-lightcnn
+
+dataset:
+  name: GunPoint
+  image_size: 64
+
+experiment:
+  representation: gaf
+  model_type: light2dcnn
+  seed: 42
+  epochs: 50
+  batch_size: 32
+  learning_rate: 0.001
+  validation_split: 0.2
+
+checkpoint:
+  monitor: val_accuracy
+  mode: max
+  early_stopping_patience: 10
+  reduce_lr_patience: 5
