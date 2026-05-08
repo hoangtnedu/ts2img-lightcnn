@@ -1,13 +1,25 @@
 project_name: ts2img-lightcnn
 
 dataset:
-  name: GunPoint
+  names:
+    - GunPoint
+    - ECG200
+    - Coffee
+    - FordA
+    - Wafer
   image_size: 64
 
 experiment:
-  representation: gaf
+  representations:
+    - gaf
+    - mtf
+    - rp
+    - stft
   model_type: light2dcnn
-  seed: 42
+  seeds:
+    - 42
+    - 2024
+    - 2026
   epochs: 50
   batch_size: 32
   learning_rate: 0.001
