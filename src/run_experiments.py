@@ -17,7 +17,7 @@ def main(args):
 
     for dataset in datasets:
         for seed in seeds:
-            # 1D baseline
+            # 1D-CNN baseline
             run(
                 [
                     sys.executable,
@@ -65,11 +65,17 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--datasets", type=str, default="GunPoint")
+
+    parser.add_argument(
+        "--datasets",
+        type=str,
+        default="GunPoint,ECG200,Coffee,FordA,Wafer",
+    )
     parser.add_argument("--representations", type=str, default="gaf,mtf,rp,stft")
     parser.add_argument("--model_type", type=str, default="light2dcnn")
     parser.add_argument("--seeds", type=str, default="42,2024,2026")
     parser.add_argument("--epochs", type=int, default=50)
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--image_size", type=int, default=64)
+
     main(parser.parse_args())
